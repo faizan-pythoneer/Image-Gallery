@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Upload</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .card-img-top {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class= mb-4">Upload Images</h1>
+        
+        <form method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <input type="file" name="image" class="form-control-file" required>
+            </div>
+            <button type="submit" class="btn btn-dark">Submit</button>
+        </form>
+
+        <h2 class="mt-5">Uploaded Images</h2>
+        <div class="row">
+            {% for image in images %}
+                <div class="col-md-3 mb-3">
+                    <div class="card">
+                        <img src="{{ url_for('static', filename='uploads/' ~ image) }}" class="card-img-top" alt="{{ image }}">
+                        <div class="card-body">
+                            <a href="{{ url_for('download_file', filename=image) }}" class="btn btn-outline-dark">Download</a>
+                            <a href="{{ url_for('delete_file', filename=image) }}" class="btn btn-outline-danger">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
+

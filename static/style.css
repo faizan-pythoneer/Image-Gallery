@@ -1,0 +1,62 @@
+/* static/css/style.css */
+body {
+    background-image: grey;
+    font: 20px monospace;
+    
+}
+
+.card {
+    border: 3px solid white;
+    border-radius: 4px;
+   
+    animation: mymove 1s infinite;
+    
+    
+}
+
+/* Define keyframes for the animation */
+@keyframes mymove {
+    0% {
+        transform: translateY(0);
+        background-color: grey;
+    }
+    50% {
+        transform: translateY(10px);
+        background-color: white;
+    }
+    100% {
+        transform: translateY(0);
+        background-color: lightcyan;
+    }
+}
+
+@keyframes textAnimation {
+    0%, 100% {
+        color: darkmagenta;
+    }
+    50% {
+        color: black;
+    }
+    50% {
+        color:blueviolet;
+    }
+    50% {
+        color:palevioletred;
+    }
+    50% {
+        color:yellow;
+    }
+    50% {
+        color:green;
+    }
+    50% {
+        color:red;
+    }
+    50% {
+        color:orange;
+    }
+}
+
+h1 {
+    animation: textAnimation 2s infinite; /* Apply animation to the heading */
+}
